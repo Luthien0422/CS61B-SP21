@@ -1,1 +1,1 @@
-# CS61B-SP21
+# CS61B-Spring 2021 - Labs and homework
