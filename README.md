@@ -1,1 +1,2 @@
-# CS61B-Spring 2021 - Labs and homework
+# CS61B-Spring 2021 
+Labs and homework
