@@ -35,7 +35,7 @@ public class ArrayDeque<T> {
         if(aDeque[nextLast] == null){
             aDeque[nextLast] = item;
             size += 1;
-            if(nextLast == aDeque.length){
+            if(nextLast == aDeque.length - 1){
                 nextLast = 0;
             }
             else{
@@ -96,17 +96,21 @@ public class ArrayDeque<T> {
     }
     public T removeFirst(){
         T returnValue;
-        if(nextFirst == aDeque.length - 1){
+        if(size == 0){
+            returnValue = null;
+        }
+        else if(nextFirst == aDeque.length - 1){
             returnValue = aDeque[0];
             aDeque[0] = null;
             nextFirst = 0;
+            size -= 1;
         }
         else{
             returnValue = aDeque[nextFirst + 1];
             aDeque[nextFirst + 1] = null;
             nextFirst += 1;
+            size -= 1;
         }
-        size -= 1;
         return returnValue;
     }
 
@@ -115,17 +119,21 @@ public class ArrayDeque<T> {
             resize(aDeque.length / 4);
         }
         T returnValue;
-        if(nextLast == 0){
+        if(size == 0){
+            returnValue = null;
+        }
+        else if (nextLast == 0){
             returnValue = aDeque[aDeque.length - 1];
             aDeque[aDeque.length - 1] = null;
             nextLast = aDeque.length - 1;
+            size -= 1;
         }
         else{
             returnValue = aDeque[nextLast - 1];
             aDeque[nextLast - 1] = null;
             nextLast -= 1;
+            size -= 1;
         }
-        size -= 1;
         return returnValue;
     }
 
