@@ -59,7 +59,7 @@ public class LinkedListDeque<T> implements Iterable<T>,Deque<T>{
         while(start != sentinel){
             System.out.print(start.item);
             start = start.next;
-            if (start!= sentinel)
+            if (start != sentinel)
             {
                 System.out.print(" ");
             }
@@ -97,11 +97,11 @@ public class LinkedListDeque<T> implements Iterable<T>,Deque<T>{
     }
     @Override
     public T get(int index){
-        if(index>=size){
+        if(index >= size){
             return null;
         }
         else{
-            if(size==0)
+            if(size == 0)
             {
                 return null;
             }
@@ -156,9 +156,6 @@ public class LinkedListDeque<T> implements Iterable<T>,Deque<T>{
         }
         if(this == o){
             return true;
-        }
-        if(this.getClass()!= o.getClass()){
-            return false;
         }
         LinkedListDeque<T> other = (LinkedListDeque<T>) o;
         if(this.size() != other.size()){

@@ -87,11 +87,11 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T>{
                 }
             }
         }
-        for(i = 0; i<nextLast;i++){
-            if(i!=nextLast-1){
+        for(i = 0; i<nextLast; i++){
+            if(i != nextLast - 1){
                 System.out.print(aDeque[i]+" ");
             }
-            else if(i==nextLast-1){
+            else if(i == nextLast - 1){
                 System.out.println(aDeque[i]);
             }
         }
@@ -178,7 +178,7 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T>{
         if(this == o){
             return true;
         }
-        if(this.getClass()!= o.getClass()){
+        if (!(o instanceof ArrayDeque)) {
             return false;
         }
         ArrayDeque<T> other = (ArrayDeque<T>) o;
