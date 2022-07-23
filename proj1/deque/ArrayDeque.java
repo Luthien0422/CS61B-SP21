@@ -5,9 +5,9 @@ import java.util.Iterator;
 public class ArrayDeque<T> implements Iterable<T>, Deque<T>{
     private T[] aDeque;
     private int size;
-    public int nextFirst;
-    public int nextLast;
-    public int space;
+    private int nextFirst;
+    private int nextLast;
+    private int space;
 
 
     public ArrayDeque(){
@@ -178,18 +178,18 @@ public class ArrayDeque<T> implements Iterable<T>, Deque<T>{
         if(this == o){
             return true;
         }
-        if (!(o instanceof ArrayDeque)) {
-            return false;
-        }
-        ArrayDeque<T> other = (ArrayDeque<T>) o;
-        if(this.size() != other.size()){
-            return false;
-        }
-        for(int i = 0; i< size; i++){
-            if (!get(i).equals(other.get(i))){
+        if (o instanceof Deque) {
+            Deque other = (Deque) o;
+            if (other.size() != size) {
                 return false;
             }
+            for (int i = 0; i < size; i++) {
+                if (!get(i).equals(other.get(i))) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 }

@@ -18,8 +18,8 @@ public class LinkedListDeque<T> implements Iterable<T>,Deque<T>{
     /**
      * The first item (if it exists) is at sentinelFront.next.
      */
-    public Node sentinel;
-    public int size;
+    private Node sentinel;
+    private int size;
 
     public LinkedListDeque() {
         sentinel = new Node((T) "sentinel", null, null);
@@ -157,16 +157,19 @@ public class LinkedListDeque<T> implements Iterable<T>,Deque<T>{
         if(this == o){
             return true;
         }
-        LinkedListDeque<T> other = (LinkedListDeque<T>) o;
-        if(this.size() != other.size()){
-            return false;
-        }
-        for(int i = 0; i< size; i++){
-            if (!get(i).equals(other.get(i))){
+        if (o instanceof Deque) {
+            Deque other = (Deque) o;
+            if (other.size() != size) {
                 return false;
             }
+            for (int i = 0; i < size; i++) {
+                if (!get(i).equals(other.get(i))) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 
 }
